@@ -1,0 +1,13 @@
+{
+  "name": "whatis",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
