@@ -48,7 +48,7 @@ export class WhatIs {
     return `${this.browser_encoded}`;
   }
   get link() {
-    return `${location.origin}#${this.my_hash}`;
+    return `${location.origin}${pathname}#${this.my_hash}`;
   }
 
   decode(s) {
