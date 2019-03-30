@@ -4,15 +4,15 @@
   "private": true,
   "license": "MIT",
   "devDependencies": {
+    "cpx": "^1.5.0",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode development",
-    "_build": "webpack",
-    "dev": "webpack-dev-server --mode development --open --watch true"
+    "build": "webpack --output-path docs && cpx index.html docs/",
+    "dev": "webpack-dev-server --mode development --open --watch"
   },
   "dependencies": {
     "ua-parser-js": "^0.7.19"
