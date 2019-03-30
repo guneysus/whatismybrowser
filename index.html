@@ -1,14 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>what is my…</title>
-    <script src="./main.js"></script>
+    <style>
+      .hidden {
+        display: none;
+      }
 
-</head>
-<body>
-    
-</body>
+      .my-result-link {
+          height: 3em;
+          width: 500px;
+          font-family: 'Courier New', Courier, monospace;
+          margin: 0 auto;
+          padding: 1em;
+      }
+
+    </style>
+  </head>
+  <body width=100%">
+    <p>share your result with your friends</p>
+    <input class="my-result-link" disabled id="my-result-link" value=""/>
+    <a href="javascript:go()">Go</a>
+    <div id="my-result" class="hidden">
+      <h2>Your Browser Info</h2>
+      <div>
+        <p>Browser: <span id="my-browser"></span></p>
+        <p>Version: <span id="my-version"></span></p>
+      </div>
+    </div>
+
+    <div id="another-result" class="hidden">
+      <h2>
+        You’re viewing information about another browser <span id="another-info"></span>
+      </h2>
+      <div>
+        <p>Browser: <span id="another-browser"></span></p>
+        <p>Version: <span id="another-version"></span></p>
+      </div>
+    </div>
+
+    <script src="./main.js"></script>
+    <script>
+        var go = function () {
+            var url = document.querySelector("#my-result-link").getAttribute("value");
+            window.open(url, "_blank");
+        }
+    </script>
+  </body>
 </html>
