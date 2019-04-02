@@ -32,22 +32,47 @@
     <input class="my-result-link" disabled id="my-result-link" value="" />
     <a href="javascript:go()">Go</a>
     <div id="my-result" class="hidden">
+
       <h2>Your Browser Info</h2>
       <div>
         <p>Browser: <span id="my-browser"></span></p>
         <p>Version: <span id="my-version"></span></p>
       </div>
+
+      <h2>Screen Info</h2>
+      <div>
+        <p>Width: <span id="my-screen-width"></span></p>
+        <p>Height: <span id="my-screen-height"></span></p>
+
+        <p>Browser Width: <span id="my-screen-available-width"></span></p>
+        <p>Browser Height: <span id="my-screen-available-height"></span></p>
+
+        <p>Orientation: <span id="my-screen-orientation"></span></p>
+      </div>  
     </div>
 
     <div id="another-result" class="hidden">
+      
       <h2>
         You’re viewing information about another browser
         <span id="another-info"></span>
       </h2>
+      
       <div>
         <p>Browser: <span id="another-browser"></span></p>
         <p>Version: <span id="another-version"></span></p>
       </div>
+
+      <h2>Screen Info</h2>
+      <div>
+        <p>Width: <span id="another-screen-width"></span></p>
+        <p>Height: <span id="another-screen-height"></span></p>
+        
+        <p>Browser Width: <span id="another-screen-available-width"></span></p>
+        <p>Browser Height: <span id="another-screen-available-height"></span></p>
+
+        <p>Orientation: <span id="another-screen-orientation"></span></p>
+      </div>  
     </div>
 
     <script src="./main.js"></script>

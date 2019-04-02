@@ -31,13 +31,19 @@ export class WhatIs {
   }
 
   get browser() {
-    return this._result.browser;
+    return {
+      n: this._result.browser.name,
+      v:this._result.browser.version
+    }
   }
 
   get browser_encoded() {
-    let b = this.browser;
-    var _ = `${b.name};${b.version}`;
-    return btoa(_);
+    var _  = {
+      b:  this.browser,
+      s:   this.screen
+    };
+
+    return btoa(JSON.stringify(_));
   }
 
   get resultId() {
@@ -51,28 +57,55 @@ export class WhatIs {
     return `${location.origin}${location.pathname}#${this.my_hash}`;
   }
 
+  get screen() {
+    return {
+      ah: window.screen.availHeight,
+      aw: window.screen.availWidth,
+      h: window.screen.height,
+      w: window.screen.width,
+      o: window.screen.orientation.type
+    };
+  }
+  
   decode(s) {
     try {
       var decoded = atob(s);
+      var result = JSON.parse(decoded);
     } catch (ex) {
       debugger; // TODO The string to be decoded is not correctly encoded.
       throw ex;
     }
 
-    var parsedResult = decoded.split(";");
-    var result = { browser: parsedResult[0], version: parsedResult[1] };
     return result;
   }
 
   render_my(result) {
-    document.querySelector("#my-browser").innerHTML = result.browser;
-    document.querySelector("#my-version").innerHTML = result.version;
+    document.querySelector("#my-browser").innerHTML = result.b.n;
+    document.querySelector("#my-version").innerHTML = result.b.v;
+
+    document.querySelector("#my-screen-height").innerHTML = result.s.h;
+    document.querySelector("#my-screen-width").innerHTML = result.s.w;
+
+    document.querySelector("#my-screen-available-height").innerHTML = result.s.ah;
+    document.querySelector("#my-screen-available-width").innerHTML = result.s.aw;
+    
+    document.querySelector("#my-screen-orientation").innerHTML = result.s.o;
+
     document.querySelector("#my-result").classList.remove("hidden");
   }
 
   render_another(result) {
-    document.querySelector("#another-browser").innerHTML = result.browser;
-    document.querySelector("#another-version").innerHTML = result.version;
+    document.querySelector("#another-browser").innerHTML = result.b.n;
+    document.querySelector("#another-version").innerHTML = result.b.v;
+
+    document.querySelector("#another-screen-height").innerHTML = result.s.h;
+    document.querySelector("#another-screen-width").innerHTML = result.s.w;
+
+    document.querySelector("#another-screen-available-height").innerHTML = result.s.ah;
+    document.querySelector("#another-screen-available-width").innerHTML = result.s.aw;
+    
+    document.querySelector("#another-screen-orientation").innerHTML = result.s.o;
+
     document.querySelector("#another-result").classList.remove("hidden");
   }
 }
