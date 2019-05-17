@@ -1,4 +1,5 @@
 import UaParser from "ua-parser-js";
+import ClipboardJS from "clipboard";
 
 var UaParse = require("ua-parser-js");
 
@@ -112,4 +113,7 @@ export class WhatIs {
 
 (function() {
   window.$ua = new WhatIs();
+
+  new ClipboardJS('.btn');
+
 })();

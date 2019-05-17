@@ -15,6 +15,7 @@
     "dev": "webpack-dev-server --mode development --open --watch"
   },
   "dependencies": {
+    "clipboard": "^2.0.4",
     "ua-parser-js": "^0.7.19"
   }
 }

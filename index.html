@@ -29,8 +29,11 @@
     /></a>
 
     <p>share your result with your friends</p>
-    <input class="my-result-link" disabled id="my-result-link" value="" />
+    <input class="my-result-link" readonly id="my-result-link" value="" />
     <a href="javascript:go()">Go</a>
+
+    <button class="btn" data-clipboard-target="#my-result-link">Copy</button>
+
     <div id="my-result" class="hidden">
 
       <h2>Your Browser Info</h2>
