@@ -1,0 +1,21 @@
+// Disable the widescreen breakpoint
+$widescreen-enabled: false;
+
+// Disable the fullhd breakpoint
+$fullhd-enabled: false;
+
+@import 'bulma';
+
+
+
+.hidden {
+    display: none;
+  }
+
+//   .my-result-link {
+//     height: 3em;
+//     width: 550px;
+//     font-family: "Courier New", Courier, monospace;
+//     margin: 0 auto;
+//     padding: 1em;
+//   }

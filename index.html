@@ -5,87 +5,174 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>what is my browser…</title>
-    <style>
-      .hidden {
-        display: none;
-      }
-
-      .my-result-link {
-        height: 3em;
-        width: 550px;
-        font-family: "Courier New", Courier, monospace;
-        margin: 0 auto;
-        padding: 1em;
-      }
-    </style>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
   </head>
   <body>
-    
-    <a href="https://github.com/guneysus/whatismybrowser"
-      ><img
-        style="position: absolute; top: 0; right: 0; border: 0;"
-        src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
-        alt="Fork me on GitHub"
-    /></a>
+    <section class="my-result section hidden">
+      <div class="container">
+        <h1 class="title">Your Browser Info</h1>
+        <h2 class="subtitle">
+          <!-- A simple container to divide your page into <strong>sections</strong>,
+          like the one you're currently reading -->
+        </h2>
 
-    <p>share your result with your friends</p>
-    <input class="my-result-link" readonly id="my-result-link" value="" />
-    <a href="javascript:go()">Go</a>
+        <p>
+          <i class="fas fa-globe" aria-hidden="true"></i>
+          <span class="my-browser"></span>
+        </p>
+        <p>
+          <i class="fas fa-code-branch" aria-hidden="true"></i>
+          <span class="my-version"></span>
+        </p>
 
-    <button class="btn" data-clipboard-target="#my-result-link">Copy</button>
+        <h2 class="subtitle"></h2>
+        <div>
+          <p>
+            <i class="fas fa-desktop" aria-hidden="true"></i>
+            <span class="my-screen-width"></span> x
+            <span class="my-screen-height"></span>
+          </p>
 
-    <div id="my-result" class="hidden">
+          <p>
+            <i class="fas fa-window-restore" aria-hidden="true"></i>
+            <span class="my-screen-available-width"></span> x
+            <span class="my-screen-available-height"></span>
+          </p>
 
-      <h2>Your Browser Info</h2>
-      <div>
-        <p>Browser: <span id="my-browser"></span></p>
-        <p>Version: <span id="my-version"></span></p>
+          <p>
+            <i class="fas fa-arrows-alt-v" aria-hidden="true"></i>
+            <i class="fas fa-arrows-alt-h" aria-hidden="true"></i>
+            <span class="my-screen-orientation"></span>
+          </p>
+        </div>
+
+        <p>
+          <i class="fas fa-link" aria-hidden="true"></i> share your result with
+          your friends
+        </p>
+
+        <div class="field">
+          <div class="control">
+            <input
+              class="input my-result-link"
+              readonly
+              id="my-result-link"
+              value=""
+            />
+          </div>
+        </div>
+
+        <a href="javascript:go()" class="button"
+          ><i class="fas fa-external-link-alt" aria-hidden="true"></i> Go</a
+        >
+
+        <button class="button" data-clipboard-target="#my-result-link">
+          <i class="fas fa-clipboard" aria-hidden="true"></i> Copy
+        </button>
       </div>
+    </section>
 
-      <h2>Screen Info</h2>
-      <div>
-        <p>Width: <span id="my-screen-width"></span></p>
-        <p>Height: <span id="my-screen-height"></span></p>
+    <section class="another-result section hidden">
+      <div class="container">
+        <h1 class="title">
+          You’re viewing information about another browser
+          <span class="another-info"></span>
+        </h1>
+        <h2 class="subtitle">
+          <!-- A simple container to divide your page into <strong>sections</strong>,
+            like the one you're currently reading -->
+        </h2>
 
-        <p>Browser Width: <span id="my-screen-available-width"></span></p>
-        <p>Browser Height: <span id="my-screen-available-height"></span></p>
+        <p>
+          <i class="fas fa-globe" aria-hidden="true"></i>
+          <span class="another-browser"></span>
+        </p>
+        <p>
+          <i class="fas fa-code-branch" aria-hidden="true"></i>
+          <span class="another-version"></span>
+        </p>
 
-        <p>Orientation: <span id="my-screen-orientation"></span></p>
-      </div>  
-    </div>
+        <h2 class="subtitle"></h2>
+        <div>
+          <p>
+            <i class="fas fa-desktop" aria-hidden="true"></i>
+            <span class="another-screen-width"></span> x
+            <span class="another-screen-height"></span>
+          </p>
 
-    <div id="another-result" class="hidden">
-      
-      <h2>
-        You’re viewing information about another browser
-        <span id="another-info"></span>
-      </h2>
-      
-      <div>
-        <p>Browser: <span id="another-browser"></span></p>
-        <p>Version: <span id="another-version"></span></p>
+          <p>
+            <i class="fas fa-window-restore" aria-hidden="true"></i>
+            <span class="another-screen-available-width"></span> x
+            <span class="another-screen-available-height"></span>
+          </p>
+
+          <p>
+            <i class="fas fa-arrows-alt-v" aria-hidden="true"></i>
+            <i class="fas fa-arrows-alt-h" aria-hidden="true"></i>
+            <span class="another-screen-orientation"></span>
+          </p>
+        </div>
+
+        <a href="javascript:goToMyResults()" class="button"
+          ><i class="fas fa-external-link-alt" aria-hidden="true"></i> Go to your results</a
+        >
+
+        <button class="button" data-clipboard-target="#my-result-link">
+          <i class="fas fa-clipboard" aria-hidden="true"></i> Copy
+        </button>
       </div>
+    </section>
 
-      <h2>Screen Info</h2>
-      <div>
-        <p>Width: <span id="another-screen-width"></span></p>
-        <p>Height: <span id="another-screen-height"></span></p>
-        
-        <p>Browser Width: <span id="another-screen-available-width"></span></p>
-        <p>Browser Height: <span id="another-screen-available-height"></span></p>
+    <section class="section">
+      <div class="container">
+        <!-- <h1 class="title">Section</h1>
+        <h2 class="subtitle">A simple container</h2> -->
 
-        <p>Orientation: <span id="another-screen-orientation"></span></p>
-      </div>  
-    </div>
+        <div class="tile is-ancestor">
+          <div class="tile is-parent">
+            <article class="tile is-child notification is-success">
+              <div class="content">
+                <p class="title">Tall tile</p>
+                <p class="subtitle">With even more content</p>
+                <div class="content"></div>
+              </div>
+            </article>
+          </div>
+          <div class="tile is-vertical is-8">
+            <div class="tile">
+              <div class="tile is-parent is-vertical">
+                <article class="tile is-child notification is-primary">
+                  <p class="title">Browser</p>
+                  <p class="subtitle">Top tile</p>
+                </article>
+                <article class="tile is-child notification is-warning">
+                  <p class="title">Screen</p>
+                  <p class="subtitle">Bottom tile</p>
+                </article>
+              </div>
+              <!-- <div class="tile is-parent">
+                <article class="tile is-child notification is-info">
+                  <p class="title">Middle tile</p>
+                  <p class="subtitle">With an image</p>
+                </article>
+              </div> -->
+            </div>
+            <!-- <div class="tile is-parent">
+              <article class="tile is-child notification is-danger">
+                <p class="title">Wide tile</p>
+                <p class="subtitle">Aligned with the right tile</p>
+                <div class="content">
+                </div>
+              </article>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
 
     <script src="./main.js?v=1"></script>
-    <script>
-      var go = function() {
-        var url = document
-          .querySelector("#my-result-link")
-          .getAttribute("value");
-        window.open(url, "_blank");
-      };
-    </script>
   </body>
 </html>

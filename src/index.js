@@ -1,13 +1,15 @@
 import UaParser from "ua-parser-js";
 import ClipboardJS from "clipboard";
 
+import './sass/styles.scss'
+
 var UaParse = require("ua-parser-js");
 
 export class WhatIs {
   constructor() {
     this._result = new UaParser(navigator.userAgent).getResult();
 
-    var linkInput = document.querySelector("#my-result-link");
+    var linkInput = document.querySelector(".my-result-link");
     linkInput.setAttribute("value", this.link);
 
     if (this.resultId != "") {
@@ -81,35 +83,46 @@ export class WhatIs {
   }
 
   render_my(result) {
-    document.querySelector("#my-browser").innerHTML = result.b.n;
-    document.querySelector("#my-version").innerHTML = result.b.v;
+    document.querySelector(".my-browser").innerHTML = result.b.n;
+    document.querySelector(".my-version").innerHTML = result.b.v;
 
-    document.querySelector("#my-screen-height").innerHTML = result.s.h;
-    document.querySelector("#my-screen-width").innerHTML = result.s.w;
+    document.querySelector(".my-screen-height").innerHTML = result.s.h;
+    document.querySelector(".my-screen-width").innerHTML = result.s.w;
 
-    document.querySelector("#my-screen-available-height").innerHTML = result.s.ah;
-    document.querySelector("#my-screen-available-width").innerHTML = result.s.aw;
+    document.querySelector(".my-screen-available-height").innerHTML = result.s.ah;
+    document.querySelector(".my-screen-available-width").innerHTML = result.s.aw;
     
-    document.querySelector("#my-screen-orientation").innerHTML = result.s.o;
+    document.querySelector(".my-screen-orientation").innerHTML = result.s.o;
 
-    document.querySelector("#my-result").classList.remove("hidden");
+    document.querySelector(".my-result").classList.remove("hidden");
   }
 
   render_another(result) {
-    document.querySelector("#another-browser").innerHTML = result.b.n;
-    document.querySelector("#another-version").innerHTML = result.b.v;
+    document.querySelector(".another-browser").innerHTML = result.b.n;
+    document.querySelector(".another-version").innerHTML = result.b.v;
 
-    document.querySelector("#another-screen-height").innerHTML = result.s.h;
-    document.querySelector("#another-screen-width").innerHTML = result.s.w;
+    document.querySelector(".another-screen-height").innerHTML = result.s.h;
+    document.querySelector(".another-screen-width").innerHTML = result.s.w;
 
-    document.querySelector("#another-screen-available-height").innerHTML = result.s.ah;
-    document.querySelector("#another-screen-available-width").innerHTML = result.s.aw;
+    document.querySelector(".another-screen-available-height").innerHTML = result.s.ah;
+    document.querySelector(".another-screen-available-width").innerHTML = result.s.aw;
     
-    document.querySelector("#another-screen-orientation").innerHTML = result.s.o;
+    document.querySelector(".another-screen-orientation").innerHTML = result.s.o;
 
-    document.querySelector("#another-result").classList.remove("hidden");
+    document.querySelector(".another-result").classList.remove("hidden");
   }
 }
+
+window.go = function() {
+  var url = document
+    .querySelector("#my-result-link")
+    .getAttribute("value");
+  window.open(url, "_blank");
+};
+
+window.goToMyResults = function() {
+  location = "/"
+};
 
 (function() {
   window.$ua = new WhatIs();
