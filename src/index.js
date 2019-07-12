@@ -2,6 +2,11 @@ import UaParser from "ua-parser-js";
 import ClipboardJS from "clipboard";
 
 import "./sass/styles.sass";
+import LZString from 'lz-string';
+
+// import LZUTF8 from 'lzutf8';
+// LZString = LZUTF8;
+
 
 var UaParse = require("ua-parser-js");
 
@@ -50,7 +55,7 @@ export class WhatIs {
       s: this.screen
     };
 
-    return btoa(JSON.stringify(_));
+    return LZString.compressToBase64(JSON.stringify(_));
   }
 
   get resultId() {
@@ -58,7 +63,9 @@ export class WhatIs {
   }
 
   get my_hash() {
-    return `${this.browser_encoded}`;
+    var hash = this.browser_encoded;
+    var chash = LZString.compressToBase64(atob(hash));
+    return `${chash}`;
   }
   get link() {
     return `${location.origin}${location.pathname}#${this.my_hash}`;
@@ -76,8 +83,9 @@ export class WhatIs {
 
   decode(s) {
     try {
-      var decoded = atob(s);
-      var result = JSON.parse(decoded);
+      debugger;
+
+      var result = JSON.parse(LZString.decompressFromBase64(s));
     } catch (ex) {
       debugger; // TODO The string to be decoded is not correctly encoded.
       throw ex;
