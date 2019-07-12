@@ -1,7 +1,7 @@
 import UaParser from "ua-parser-js";
 import ClipboardJS from "clipboard";
 
-import "./sass/styles.scss";
+import "./sass/styles.sass";
 
 var UaParse = require("ua-parser-js");
 
