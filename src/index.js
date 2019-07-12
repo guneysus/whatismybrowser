@@ -4,11 +4,34 @@ import ClipboardJS from "clipboard";
 import "./sass/styles.sass";
 import LZString from 'lz-string';
 
-// import LZUTF8 from 'lzutf8';
-// LZString = LZUTF8;
-
-
 var UaParse = require("ua-parser-js");
+
+var encode = function(data) {
+  var s = `${data.b.n}|${data.b.v}|${data.s.ah}|${data.s.aw}|${data.s.h}|${data.s.w}|${data.s.o}`;
+  var json = JSON.stringify(data);
+
+  return LZString.compressToBase64(s);
+};
+
+var decode = function(s) {
+  var arr = LZString.decompressFromBase64(s).split('|');
+  return {
+    b: {
+      n: arr[0],
+      v: arr[1]
+    },
+    s: {
+      ah: arr[2],
+      aw: arr[3],
+      h: arr[4],
+      w: arr[5],
+      o: arr[6]
+    }
+  }
+  return JSON.parse(LZString.decompressFromBase64(s));
+};
+
+
 
 export class WhatIs {
   constructor() {
@@ -22,24 +45,20 @@ export class WhatIs {
     })
 
     if (this.resultId != "") {
-      console.info("Showing another result");
       this.showAnotherResult();
     } else {
-      console.info("Showing my result");
       this.showMyResult();
     }
   }
 
   showAnotherResult() {
-    var result = this.decode(this.resultId.replace("#", ""));
+    var result = decode(this.resultId.replace("#", ""));
     this.render_another(result);
-    console.log(result);
   }
 
   showMyResult() {
-    var result = this.decode(this.browser_encoded);
+    var result = decode(this.browser_encoded);
     this.render_my(result);
-    console.log(result);
   }
 
   get browser() {
@@ -50,12 +69,12 @@ export class WhatIs {
   }
 
   get browser_encoded() {
-    var _ = {
+    var data = {
       b: this.browser,
       s: this.screen
     };
 
-    return LZString.compressToBase64(JSON.stringify(_));
+    return encode(data);
   }
 
   get resultId() {
@@ -64,8 +83,7 @@ export class WhatIs {
 
   get my_hash() {
     var hash = this.browser_encoded;
-    var chash = LZString.compressToBase64(atob(hash));
-    return `${chash}`;
+    return `${hash}`;
   }
   get link() {
     return `${location.origin}${location.pathname}#${this.my_hash}`;
@@ -83,8 +101,6 @@ export class WhatIs {
 
   decode(s) {
     try {
-      debugger;
-
       var result = JSON.parse(LZString.decompressFromBase64(s));
     } catch (ex) {
       debugger; // TODO The string to be decoded is not correctly encoded.
