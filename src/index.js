@@ -24,7 +24,14 @@ import {
 // Import brand icons
 import {
   faLinux as fabLinux,
-  faWindows as fabWindows
+  faWindows as fabWindows,
+  faAndroid as fabAndroid,
+  faApple as fabApple,
+  faOpera as fabOpera, 
+  faFirefox as fabFirefox, 
+  faInternetExplorer as fabInternetExplorer,
+  faSafari as fabSafari,
+  faChrome as fabChrome
 } from "@fortawesome/free-brands-svg-icons";
 
 // Add icons to library
@@ -38,7 +45,14 @@ library.add(
   faExternalLinkAlt,
   faClipboard,
   fabLinux,
-  fabWindows
+  fabWindows,
+  fabAndroid,
+  fabApple,
+  fabOpera,
+  fabFirefox,
+  fabInternetExplorer,
+  fabSafari,
+  fabChrome
 );
 
 // Replace any existing <i> tags with <svg> and set up a MutationObserver to
@@ -195,9 +209,15 @@ export class WhatIs {
       x.innerHTML = orientation;
     });
 
-    document.querySelectorAll(`.os-${result.o.n}`).forEach(el => {
+    // var selector = `.os-${result.o.n}`.replace(/\s/g, "");
+    document.querySelectorAll(`.os-${result.o.n}`.replace(/\s/g, "")).forEach(el => {
       el.classList.remove("hidden");
     });
+
+    document.querySelectorAll(`.browser-${result.b.n}`.replace(/\s/g, "")).forEach(el => {
+      el.classList.remove("hidden");
+    });
+
 
     document.querySelectorAll(".my-result").forEach(x => {
       x.classList.remove("hidden");
