@@ -3,12 +3,14 @@ const TerserJSPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 // const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const BabelMinifyPlugin = require('babel-minify-webpack-plugin')
 
 module.exports = {
   optimization: {
     minimizer: [
       new TerserJSPlugin({}),
-      new OptimizeCSSAssetsPlugin({})
+      new OptimizeCSSAssetsPlugin({}),
+      new BabelMinifyPlugin()
     ]
   },
   plugins: [

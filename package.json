@@ -7,6 +7,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.9.0",
     "@fortawesome/free-regular-svg-icons": "^5.9.0",
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
+    "babel-minify-webpack-plugin": "^0.3.1",
     "cpx": "^1.5.0",
     "css-loader": "^3.0.0",
     "mini-css-extract-plugin": "^0.7.0",
