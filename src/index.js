@@ -239,9 +239,15 @@ export class WhatIs {
     document.querySelector(".another-screen-available-width").innerHTML =
       result.s.aw;
 
-    document.querySelector(".another-screen-orientation").innerHTML =
-      result.s.o;
+      document.querySelectorAll(".another-screen-orientation").forEach(x => {
+        var orientation = result.s.o;
+        var orientationEls = document.querySelectorAll(`.${orientation}`);
+        orientationEls.forEach(e => {
+          e.classList.remove("hidden")
+        });
 
+        x.innerHTML = orientation;
+      });
     document.querySelector(".another-result").classList.remove("hidden");
 
 
