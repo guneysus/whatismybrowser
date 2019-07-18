@@ -225,6 +225,9 @@ export class WhatIs {
   }
 
   render_another(result) {
+
+    document.querySelector("body").classList.add("has-background-warning");
+
     document.querySelector(".another-browser").innerHTML = result.b.n;
     document.querySelector(".another-version").innerHTML = result.b.v;
 
@@ -240,6 +243,18 @@ export class WhatIs {
       result.s.o;
 
     document.querySelector(".another-result").classList.remove("hidden");
+
+
+    // var selector = `.os-${result.o.n}`.replace(/\s/g, "");
+    document.querySelectorAll(`.another-os-${result.o.n}`.replace(/\s/g, "")).forEach(el => {
+      el.classList.remove("hidden");
+    });
+
+    document.querySelectorAll(`.another-browser-${result.b.n}`.replace(/\s/g, "")).forEach(el => {
+      el.classList.remove("hidden");
+    });
+
+
   }
 }
 

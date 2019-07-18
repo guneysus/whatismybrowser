@@ -6,70 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>what is my browser…</title>
 
-        <script
-          src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"
-          integrity="sha256-nRoO8HoupfqozUr7YKBRgHXmdx40Hl/04OSBzv7e7L8="
-          crossorigin="anonymous"
-        ></script>
-
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"
+      integrity="sha256-nRoO8HoupfqozUr7YKBRgHXmdx40Hl/04OSBzv7e7L8="
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <section class="another-result section hidden">
-      <div class="container">
-        <h1 class="title">
-          You’re viewing information about another browser
-          <span class="another-info"></span>
-        </h1>
-        <h2 class="subtitle">
-          <!-- A simple container to divide your page into <strong>sections</strong>,
-            like the one you're currently reading -->
-        </h2>
-
-        <p>
-          <i class="fas fa-globe" aria-hidden="true"></i>
-          <span class="another-browser"></span>
-        </p>
-        <p>
-          <i class="fas fa-code-branch" aria-hidden="true"></i>
-          <span class="another-version"></span>
-        </p>
-
-        <h2 class="subtitle"></h2>
-        <div>
-          <p>
-            <i class="fas fa-desktop" aria-hidden="true"></i>
-            <span class="another-screen-width"></span> x
-            <span class="another-screen-height"></span>
-          </p>
-
-          <p>
-            <i class="fas fa-window-restore" aria-hidden="true"></i>
-            <span class="another-screen-available-width"></span> x
-            <span class="another-screen-available-height"></span>
-          </p>
-
-          <p>
-            <i class="fas fa-arrows-alt-v" aria-hidden="true"></i>
-            <i class="fas fa-arrows-alt-h" aria-hidden="true"></i>
-            <span class="another-screen-orientation"></span>
-          </p>
-        </div>
-
-        <a href="javascript:goToMyResults()" class="button"
-          ><i class="fas fa-external-link-alt" aria-hidden="true"></i> Go to
-          your results</a
-        >
-
-        <button class="button" data-clipboard-target="#my-result-link">
-          <i class="fas fa-clipboard" aria-hidden="true"></i> Copy
-        </button>
-      </div>
-    </section>
-
     <section class="my-result hidden section ">
       <div class="container">
         <!-- <h1 class="title">Section</h1>
-        <h2 class="subtitle">A simple container</h2> -->
+            <h2 class="subtitle">A simple container</h2> -->
 
         <div class="tile is-ancestor">
           <div class="tile is-parent">
@@ -79,16 +26,43 @@
                   <p class="title">
                     <!-- <i class="fas fa-globe" aria-hidden="true"></i> -->
 
-                    <i class="fab fa-chrome browser-Chrome hidden" aria-hidden="true"></i>
-                    <i class="fab fa-opera browser-Opera hidden" aria-hidden="true"></i>
-                    <i class="fab fa-firefox browser-Firefox hidden" aria-hidden="true"></i>
-                    <i class="fab fa-safari browser-Safari browser-MobileSafari hidden" aria-hidden="true"></i>
-                    <i class="fab fa-internet-explorer browser-IE browser-IEMobile hidden" aria-hidden="true"></i>
+                    <i
+                      class="fab fa-chrome browser-Chrome hidden"
+                      aria-hidden="true"
+                    ></i>
+                    <i
+                      class="fab fa-opera browser-Opera hidden"
+                      aria-hidden="true"
+                    ></i>
+                    <i
+                      class="fab fa-firefox browser-Firefox hidden"
+                      aria-hidden="true"
+                    ></i>
+                    <i
+                      class="fab fa-safari browser-Safari browser-MobileSafari hidden"
+                      aria-hidden="true"
+                    ></i>
+                    <i
+                      class="fab fa-internet-explorer browser-IE browser-IEMobile hidden"
+                      aria-hidden="true"
+                    ></i>
 
-                    <i class="fab fa-linux os-Linux hidden" aria-hidden="true"></i>
-                    <i class="fab fa-windows os-Windows os-WindowsPhone hidden" aria-hidden="true"></i>
-                    <i class="fab fa-android os-Android hidden" aria-hidden="true"></i>
-                    <i class="fab fa-apple os-iOS os-MacOS hidden" aria-hidden="true"></i>
+                    <i
+                      class="fab fa-linux os-Linux hidden"
+                      aria-hidden="true"
+                    ></i>
+                    <i
+                      class="fab fa-windows os-Windows os-WindowsPhone hidden"
+                      aria-hidden="true"
+                    ></i>
+                    <i
+                      class="fab fa-android os-Android hidden"
+                      aria-hidden="true"
+                    ></i>
+                    <i
+                      class="fab fa-apple os-iOS os-MacOS hidden"
+                      aria-hidden="true"
+                    ></i>
                     <span class="my-browser"></span>
 
                     <span class="my-version"></span>
@@ -158,8 +132,105 @@
       </div>
     </section>
 
+    <section class="another-result section hidden">
+      <div class="container">
+        <h1 class="title">
+          You’re viewing information about another browser
+          <span class="another-info"></span>
+        </h1>
+        <h2 class="subtitle">
+          <!-- A simple container to divide your page into <strong>sections</strong>,
+            like the one you're currently reading -->
+        </h2>
+
+        <div class="tile is-ancestor">
+            <div class="tile is-parent">
+              <div class="tile">
+                <div class="tile is-child is-vertical">
+                  <article class="tile is-child notification is-primary">
+                    <p class="title">
+                      <!-- <i class="fas fa-globe" aria-hidden="true"></i> -->
+  
+                      <i
+                        class="fab fa-chrome another-browser-Chrome hidden"
+                        aria-hidden="true"
+                      ></i>
+                      <i
+                        class="fab fa-opera another-browser-Opera hidden"
+                        aria-hidden="true"
+                      ></i>
+                      <i
+                        class="fab fa-firefox another-browser-Firefox hidden"
+                        aria-hidden="true"
+                      ></i>
+                      <i
+                        class="fab fa-safari another-browser-Safari browser-MobileSafari hidden"
+                        aria-hidden="true"
+                      ></i>
+                      <i
+                        class="fab fa-internet-explorer another-browser-IE browser-IEMobile hidden"
+                        aria-hidden="true"
+                      ></i>
+  
+                      <i
+                        class="fab fa-linux another-os-Linux hidden"
+                        aria-hidden="true"
+                      ></i>
+                      <i
+                        class="fab fa-windows another-os-Windows another-os-WindowsPhone hidden"
+                        aria-hidden="true"
+                      ></i>
+                      <i
+                        class="fab fa-android another-os-Android hidden"
+                        aria-hidden="true"
+                      ></i>
+                      <i
+                        class="fab fa-apple another-os-iOS another-os-MacOS hidden"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="another-browser"></span>
+  
+                      <span class="another-version"></span>
+                    </p>
+                    <p class="subtitle"></p>
+                  </article>
+                  <article class="tile is-child notification is-warning">
+                    <p class="title">
+                      <i class="fas fa-desktop" aria-hidden="true"></i>
+                      <span class="another-screen-width"></span> x
+                      <span class="another-screen-height"></span>
+                    </p>
+                    <div class="subtitle">
+                      <i class="fas fa-window-restore" aria-hidden="true"></i>
+                      <i
+                        class="fas fa-arrows-alt-h landscape-primary hidden"
+                        aria-hidden="true"
+                      ></i>
+                      <i
+                        class="fas fa-arrows-alt-v portrait-primary hidden"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="another-screen-available-width"></span> x
+                      <span class="another-screen-available-height"></span>
+                      <p>
+                        <span class="another-screen-orientation"></span>
+                      </p>
+                    </div>
+  
+                    <p></p>
+                  </article>
+                </div>
+              </div>
+            </div>
+            <div class="tile is-parent">
+
+            </div>
+          </div>
+
+      </div>
+    </section>
+
     <script src="./main.js?v=5"></script>
     <link rel="stylesheet" href="./main.css?v=5" />
-
   </body>
 </html>
