@@ -65,6 +65,7 @@ import LZString from "lz-string";
 var UaParse = require("ua-parser-js");
 
 var encode = function(data) {
+
   var s = `${data.b.n}|${data.b.v}|${data.s.ah}|${data.s.aw}|${data.s.h}|${
     data.s.w
   }|${data.s.o}|${data.o.n}`;
@@ -85,7 +86,7 @@ var decode = function(s) {
       aw: arr[3],
       h: arr[4],
       w: arr[5],
-      o: arr[6]
+      o: arr[6].substring(0, 1)
     },
     o: {
       n: arr[7]
@@ -205,8 +206,8 @@ export class WhatIs {
 
     document.querySelectorAll(".my-screen-orientation").forEach(x => {
       var orientation = result.s.o;
-      document.querySelector(`.${orientation}`).classList.remove("hidden");
-      x.innerHTML = orientation;
+      document.querySelector(`.orientation-${orientation}`).classList.remove("hidden");
+      // x.innerHTML = orientation;
     });
 
     // var selector = `.os-${result.o.n}`.replace(/\s/g, "");
@@ -241,12 +242,12 @@ export class WhatIs {
 
       document.querySelectorAll(".another-screen-orientation").forEach(x => {
         var orientation = result.s.o;
-        var orientationEls = document.querySelectorAll(`.${orientation}`);
+        var orientationEls = document.querySelectorAll(`.orientation-${orientation}`);
         orientationEls.forEach(e => {
           e.classList.remove("hidden")
         });
 
-        x.innerHTML = orientation;
+        // x.innerHTML = orientation;
       });
     document.querySelector(".another-result").classList.remove("hidden");
 
