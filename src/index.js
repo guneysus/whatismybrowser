@@ -240,9 +240,9 @@ export class WhatIs {
     document.querySelector(".another-screen-available-width").innerHTML =
       result.s.aw;
 
-      document.querySelectorAll(".another-screen-orientation").forEach(x => {
+      Array.from(document.querySelectorAll(".another-screen-orientation")).forEach(x => {
         var orientation = result.s.o;
-        var orientationEls = document.querySelectorAll(`.orientation-${orientation}`);
+        var orientationEls = Array.from(document.querySelectorAll(`.orientation-${orientation}`));
         orientationEls.forEach(e => {
           e.classList.remove("hidden")
         });
@@ -253,11 +253,11 @@ export class WhatIs {
 
 
     // var selector = `.os-${result.o.n}`.replace(/\s/g, "");
-    document.querySelectorAll(`.another-os-${result.o.n}`.replace(/\s/g, "")).forEach(el => {
+    Array.from(document.querySelectorAll(`.another-os-${result.o.n}`.replace(/\s/g, ""))).forEach(el => {
       el.classList.remove("hidden");
     });
 
-    document.querySelectorAll(`.another-browser-${result.b.n}`.replace(/\s/g, "")).forEach(el => {
+    Array.from(document.querySelectorAll(`.another-browser-${result.b.n}`.replace(/\s/g, ""))).forEach(el => {
       el.classList.remove("hidden");
     });
 
