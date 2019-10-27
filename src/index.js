@@ -100,7 +100,7 @@ export class WhatIs {
   constructor() {
     this._result = new UaParser(navigator.userAgent).getResult();
 
-    var linkInputs = document.querySelectorAll(".my-result-link");
+    var linkInputs = Array.from(document.querySelectorAll(".my-result-link"));
     // linkInputs.setAttribute("text", this.link);
 
     linkInputs.forEach(linkInput => {
@@ -180,47 +180,47 @@ export class WhatIs {
   }
 
   render_my(result) {
-    document.querySelectorAll(".my-browser").forEach(x => {
+    Array.from(document.querySelectorAll(".my-browser")).forEach(x => {
       x.innerHTML = result.b.n;
     });
 
-    document.querySelectorAll(".my-version").forEach(x => {
+    Array.from(document.querySelectorAll(".my-version")).forEach(x => {
       x.innerHTML = result.b.v;
     });
 
-    document.querySelectorAll(".my-screen-height").forEach(x => {
+    Array.from(document.querySelectorAll(".my-screen-height")).forEach(x => {
       x.innerHTML = result.s.h;
     });
 
-    document.querySelectorAll(".my-screen-width").forEach(x => {
+    Array.from(document.querySelectorAll(".my-screen-width")).forEach(x => {
       x.innerHTML = result.s.w;
     });
 
-    document.querySelectorAll(".my-screen-available-height").forEach(x => {
+    Array.from(document.querySelectorAll(".my-screen-available-height")).forEach(x => {
       x.innerHTML = result.s.ah;
     });
 
-    document.querySelectorAll(".my-screen-available-width").forEach(x => {
+    Array.from(document.querySelectorAll(".my-screen-available-width")).forEach(x => {
       x.innerHTML = result.s.aw;
     });
 
-    document.querySelectorAll(".my-screen-orientation").forEach(x => {
+    Array.from(document.querySelectorAll(".my-screen-orientation")).forEach(x => {
       var orientation = result.s.o;
       document.querySelector(`.orientation-${orientation}`).classList.remove("hidden");
       // x.innerHTML = orientation;
     });
 
     // var selector = `.os-${result.o.n}`.replace(/\s/g, "");
-    document.querySelectorAll(`.os-${result.o.n}`.replace(/\s/g, "")).forEach(el => {
+    Array.from(document.querySelectorAll(`.os-${result.o.n}`.replace(/\s/g, ""))).forEach(el => {
       el.classList.remove("hidden");
     });
 
-    document.querySelectorAll(`.browser-${result.b.n}`.replace(/\s/g, "")).forEach(el => {
+    Array.from(document.querySelectorAll(`.browser-${result.b.n}`.replace(/\s/g, ""))).forEach(el => {
       el.classList.remove("hidden");
     });
 
 
-    document.querySelectorAll(".my-result").forEach(x => {
+    Array.from(document.querySelectorAll(".my-result")).forEach(x => {
       x.classList.remove("hidden");
     });
   }
