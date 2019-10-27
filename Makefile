@@ -7,3 +7,8 @@ help:  ## Print this message.
 .PHONY: build 
 build:  ## Build
 	yarn build
+
+.PHONY: ngrok-tunnel
+ngrok-tunnel: ## start ngrok tunnel on whatismybrowser.ngrok.io
+	ngrok http 8080 -subdomain=whatismybrowser -host-header="localhost:8080"
+
