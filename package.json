@@ -33,6 +33,6 @@
     "bulma": "^0.7.5",
     "clipboard": "^2.0.4",
     "lz-string": "^1.4.4",
-    "ua-parser-js": "^0.7.19"
+    "ua-parser-js": "^0.7.24"
   }
 }
